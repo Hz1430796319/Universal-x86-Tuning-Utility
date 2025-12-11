@@ -81,34 +81,37 @@
         <!--  The title bar contains window navigation elements and some Tray related extras.  -->
         <!--  You can put additional controls in the header, such as a search bar.  -->
         <!--  <ui:TitleBar.Header />  -->
-        <ui:TitleBar
-            Name="tbMain"
-            Title="Universal x86 Tuning Utility"
-            Icon="pack://application:,,,/Assets/applicationIcon-256.png"
-            UseSnapLayout="True" Grid.ColumnSpan="4" VerticalAlignment="Center">
-            <ui:TitleBar.Tray>
-                <ui:NotifyIcon
+		<ui:TitleBar
+					Name="tbMain"
+					Title="Universal x86 Tuning Utility"
+					Icon="pack://application:,,,/Assets/applicationIcon-256.png"
+					UseSnapLayout="True" Grid.ColumnSpan="4" VerticalAlignment="Center">
+
+			<ui:TitleBar.Tray>
+				<ui:NotifyIcon
                     Name="niTray"
                     LeftClick="NotifyIcon_LeftClick"
                     FocusOnLeftClick="False"
                     Icon="pack://application:,,,/Assets/applicationIcon-256.png"
                     MenuOnRightClick="True"
-                    TooltipText="Universal x86 Tuning Utility">
-                    <ui:NotifyIcon.Menu>
-                        <ContextMenu>
-                            <!--<MenuItem Name="miCharge" Header="Charge Rate: -15W" Tag="charge" IsEnabled="False" />-->
-                            <MenuItem Name="miClose" Header="Close Application" Tag="close" Click="miClose_Click"/>
-                        </ContextMenu>
-                    </ui:NotifyIcon.Menu>
-                </ui:NotifyIcon>
-            </ui:TitleBar.Tray>
-            <ui:TitleBar.Header>
-                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                    <ui:Button Appearance="Transparent" Margin="0,0,9,0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="download" Content="{Binding ViewModel.Downloads}" Visibility="{Binding ViewModel.IsDownloads, Converter={StaticResource BooleanToVisibilityConverter}}"></ui:Button>
-                    <ui:Button Appearance="Transparent" Margin="0,0,9,0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="support">Buy us a beer! &#9829;</ui:Button>
-                    <ui:Button Appearance="Transparent" Margin="0,0,9,0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="discord">Join our Discord!</ui:Button>
-                </StackPanel>
-            </ui:TitleBar.Header>
-        </ui:TitleBar>
+                    TooltipText="通用 x86 调节工具">
+					<ui:NotifyIcon.Menu>
+						<ContextMenu>
+							<MenuItem Name="miClose" Header="退出程序" Tag="close" Click="miClose_Click"/>
+						</ContextMenu>
+					</ui:NotifyIcon.Menu>
+				</ui:NotifyIcon>
+			</ui:TitleBar.Tray>
+
+			<ui:TitleBar.Header>
+				<StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+					<ui:Button Appearance="Transparent" Margin="0,0,9,0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="download" Content="{Binding ViewModel.Downloads}" Visibility="{Binding ViewModel.IsDownloads, Converter={StaticResource BooleanToVisibilityConverter}}"></ui:Button>
+
+					<ui:Button Appearance="Transparent" Margin="0,0,9,0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="support">请我们要杯啤酒! &#9829;</ui:Button>
+
+					<ui:Button Appearance="Transparent" Margin="0,0,9,0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="discord">加入我们的 Discord!</ui:Button>
+				</StackPanel>
+			</ui:TitleBar.Header>
+		</ui:TitleBar>
     </Grid>
 </ui:UiWindow>
