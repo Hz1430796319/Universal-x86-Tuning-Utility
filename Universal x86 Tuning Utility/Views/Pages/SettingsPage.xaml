@@ -15,73 +15,62 @@
     d:Background="{DynamicResource ApplicationBackgroundBrush}"
     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     mc:Ignorable="d" Loaded="UiPage_Loaded">
-    <ui:UiPage.Resources>
-        <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
-    </ui:UiPage.Resources>
+	<ui:UiPage.Resources>
+		<helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+	</ui:UiPage.Resources>
 
-    <StackPanel Margin="18,10,18,0">
-        <!--<TextBlock
-            FontSize="26"
-            FontWeight="Medium"
-            Text="Personalization" />
-        <TextBlock Margin="0,12,0,0" Text="Theme" />
-        <RadioButton
-            Margin="0,12,0,0"
-            Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
-            CommandParameter="theme_light"
-            Content="Light"
-            GroupName="themeSelect"
-            IsChecked="{Binding ViewModel.CurrentTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}" />
-        <RadioButton
-            Margin="0,8,0,0"
-            Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
-            CommandParameter="theme_dark"
-            Content="Dark"
-            GroupName="themeSelect"
-            IsChecked="{Binding ViewModel.CurrentTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}" />-->
-        <CheckBox Name="cbStartBoot" Click="cbStartBoot_Click">Start on System Boot</CheckBox>
-        <CheckBox Name="cbStartMini" Click="cbStartMini_Click">Start Minimised</CheckBox>
-        <CheckBox Name="cbMinimizeClose" Click="cbMinimizeClose_Click">Minimize on close</CheckBox>
-        <CheckBox Name="cbApplyStart" Click="cbApplyStart_Click">Reapply On Start</CheckBox>
-        <StackPanel Orientation="Horizontal">
-            <CheckBox Name="cbAutoReapply" Click="cbAutoReapply_Click">Auto Reapply (s)</CheckBox>
-            <ui:NumberBox Name="nudAutoReapply" Minimum="1" Maximum="90" Margin="9,0,0,0" TextChanged="nudAutoReapply_TextChanged" MaxDecimalPlaces="0" ValueChanged="nudAutoReapply_ValueChanged"></ui:NumberBox>
-        </StackPanel>
-        <CheckBox Name="cbAutoCheck" Click="cbAutoCheck_Click">Auto Update Check</CheckBox>
-        <CheckBox Name="cbAdaptive" Click="cbAdaptive_Click">Auto Start Adaptive Mode</CheckBox>
-        <CheckBox Name="cbTrack" Click="cbTrack_Click">Track Games</CheckBox>
-        <ui:Button Name="btnStressTest" Width="178" Click="btnStressTest_Click" Margin="0,9,0,0">
-            <StackPanel Orientation="Horizontal">
-                <ui:SymbolIcon Symbol="Fire20" FontSize="24" Margin="0,0,9,0"/>
-                <TextBlock VerticalAlignment="Center">Start Stress Test</TextBlock>
-            </StackPanel>
-        </ui:Button>
+	<StackPanel Margin="18,10,18,0">
+		<CheckBox Name="cbStartBoot" Click="cbStartBoot_Click">开机自动启动</CheckBox>
 
-        <TextBlock Foreground="DarkRed" Margin="0,4.5,0,0" Text="WARNING: This will put extreme stress on your CPU. Use at your own risk!" />
+		<CheckBox Name="cbStartMini" Click="cbStartMini_Click">启动时最小化</CheckBox>
 
-        <TextBlock
+		<CheckBox Name="cbMinimizeClose" Click="cbMinimizeClose_Click">关闭时最小化到托盘</CheckBox>
+
+		<CheckBox Name="cbApplyStart" Click="cbApplyStart_Click">启动时重新应用设置</CheckBox>
+
+		<StackPanel Orientation="Horizontal">
+			<CheckBox Name="cbAutoReapply" Click="cbAutoReapply_Click">自动重新应用间隔 (秒)</CheckBox>
+			<ui:NumberBox Name="nudAutoReapply" Minimum="1" Maximum="90" Margin="9,0,0,0" TextChanged="nudAutoReapply_TextChanged" MaxDecimalPlaces="0" ValueChanged="nudAutoReapply_ValueChanged"></ui:NumberBox>
+		</StackPanel>
+
+		<CheckBox Name="cbAutoCheck" Click="cbAutoCheck_Click">自动检查更新</CheckBox>
+
+		<CheckBox Name="cbAdaptive" Click="cbAdaptive_Click">自动开启自适应模式</CheckBox>
+
+		<CheckBox Name="cbTrack" Click="cbTrack_Click">追踪游戏状态</CheckBox>
+
+		<ui:Button Name="btnStressTest" Width="178" Click="btnStressTest_Click" Margin="0,9,0,0">
+			<StackPanel Orientation="Horizontal">
+				<ui:SymbolIcon Symbol="Fire20" FontSize="24" Margin="0,0,9,0"/>
+				<TextBlock VerticalAlignment="Center">开始烤机测试</TextBlock>
+			</StackPanel>
+		</ui:Button>
+
+		<TextBlock Foreground="DarkRed" Margin="0,4.5,0,0" Text="警告: 这将给您的 CPU 施加极大的压力，请谨慎使用，后果自负！" />
+
+		<TextBlock
             Margin="0,24,0,0"
             FontSize="20"
             FontWeight="Medium"
-            Text="About Universal x86 Tuning Utility" />
-        <TextBlock Margin="0,12,0,9" Text="{Binding ViewModel.AppVersion, Mode=OneWay}" />
+            Text="关于 Universal x86 Tuning Utility" />
+		<TextBlock Margin="0,12,0,9" Text="{Binding ViewModel.AppVersion, Mode=OneWay}" />
 
-        <StackPanel Orientation="Horizontal">
-            <ui:Button Name="btnCheck" Width="178" Click="btnCheck_Click">
-                <StackPanel Orientation="Horizontal">
-                    <ui:SymbolIcon Symbol="ArrowSync20" FontSize="24" Margin="0,0,9,0"/>
-                    <TextBlock VerticalAlignment="Center">Check for Updates</TextBlock>
-                </StackPanel>
-            </ui:Button>
+		<StackPanel Orientation="Horizontal">
+			<ui:Button Name="btnCheck" Width="178" Click="btnCheck_Click">
+				<StackPanel Orientation="Horizontal">
+					<ui:SymbolIcon Symbol="ArrowSync20" FontSize="24" Margin="0,0,9,0"/>
+					<TextBlock VerticalAlignment="Center">检查更新</TextBlock>
+				</StackPanel>
+			</ui:Button>
 
-            <ui:Button Name="btnDownload" Margin="9,0,0,0" Width="178" Visibility="Collapsed" Click="btnDownload_Click">
-                <StackPanel Orientation="Horizontal">
-                    <ui:SymbolIcon Symbol="ArrowDownload20" FontSize="24" Margin="0,0,9,0"/>
-                    <TextBlock VerticalAlignment="Center">Download Update</TextBlock>
-                </StackPanel>
-            </ui:Button>
-        </StackPanel>
+			<ui:Button Name="btnDownload" Margin="9,0,0,0" Width="178" Visibility="Collapsed" Click="btnDownload_Click">
+				<StackPanel Orientation="Horizontal">
+					<ui:SymbolIcon Symbol="ArrowDownload20" FontSize="24" Margin="0,0,9,0"/>
+					<TextBlock VerticalAlignment="Center">下载更新</TextBlock>
+				</StackPanel>
+			</ui:Button>
+		</StackPanel>
 
-        <TextBlock Name="tbDownloadMsg" HorizontalAlignment="Left" Margin="0,9,0,0" TextWrapping="Wrap" Width="351"></TextBlock>
-    </StackPanel>
+		<TextBlock Name="tbDownloadMsg" HorizontalAlignment="Left" Margin="0,9,0,0" TextWrapping="Wrap" Width="351"></TextBlock>
+	</StackPanel>
 </ui:UiPage>

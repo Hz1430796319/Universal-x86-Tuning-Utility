@@ -18,50 +18,52 @@
     ScrollViewer.IsDeferredScrollingEnabled="False"
     mc:Ignorable="d">
 
-    <Grid VerticalAlignment="Top">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="164" />
-        </Grid.RowDefinitions>
-        <Border
+	<Grid VerticalAlignment="Top">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="164" />
+		</Grid.RowDefinitions>
+		<Border
             Grid.Row="0"
             MinHeight="425"
             CornerRadius="8,0,0,0">
-                <Border.Background>
-                    <ImageBrush
-                    ImageSource="pack://application:,,,/Assets/pexels-photo-8037008.jpeg"
-                    RenderOptions.BitmapScalingMode="HighQuality"
-                    Stretch="UniformToFill" />
-                </Border.Background>
-                <Border CornerRadius="8,0,0,0">
-                    <Border.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Offset="0" Color="#1F000000" />
-                            <GradientStop Offset="1" Color="#4F000000" />
-                        </RadialGradientBrush>
-                    </Border.Background>
-                    <Grid>
-                        <!--Background="#66242424"-->
-                        <Border Margin="64"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center" CornerRadius="8" Padding="9">
-                        <StackPanel
+			<Border.Background>
+				<ImageBrush
+				ImageSource="pack://application:,,,/Assets/pexels-photo-8037008.jpeg"
+				RenderOptions.BitmapScalingMode="HighQuality"
+				Stretch="UniformToFill" />
+			</Border.Background>
+			<Border CornerRadius="8,0,0,0">
+				<Border.Background>
+					<RadialGradientBrush>
+						<GradientStop Offset="0" Color="#1F000000" />
+						<GradientStop Offset="1" Color="#4F000000" />
+					</RadialGradientBrush>
+				</Border.Background>
+				<Grid>
+					<Border Margin="64"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center" CornerRadius="8" Padding="9">
+						<StackPanel
                         
                         Background="Transparent">
-                            <TextBlock
+							<TextBlock
                             FontSize="18"
                             Foreground="#B7FFFFFF"
-                            Text="Welcome To" />
-                            <TextBlock
+                            Text="欢迎使用" />
+
+							<TextBlock
                             FontSize="28"
                             FontWeight="Bold"
                             Foreground="#FFFFFF"
                             Text="Universal x86 Tuning Utility" />
-                            <TextBlock
+
+							<TextBlock
                             FontSize="18"
                             Foreground="#B7FFFFFF"
-                            Text="V2.5.5 Stable" />
-                            <ui:Button
+                            Text="V2.5.5 稳定版" />
+
+							<ui:Button
                                 Name="btnPremade"
                             Height="36"
                             Margin="0,12,0,0"
@@ -70,43 +72,44 @@
                             Appearance="Transparent"
                             Command="{Binding ViewModel.NavigateCommand}"
                             CommandParameter="premade"
-                            Content="Try Out The Premade Presets"
+                            Content="尝试预设模式"
                             Foreground="{DynamicResource TextFillColorLightPrimaryBrush}" />
-                        </StackPanel>
-                        </Border>
-                        <TextBlock
-                        Margin="12"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"
-                        FontSize="10"
-                        Foreground="#57FFFFFF"
-                        Text="Created by JamesCJ, sbski, ProjectSBC, and you!" />
+						</StackPanel>
+					</Border>
 
-                    <Border Width="320" Height="120" HorizontalAlignment="Left" VerticalAlignment="Bottom" CornerRadius="0,4,0,0">
-                        <Border.Background>
-                            <ImageBrush
+					<TextBlock
+					Margin="12"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Bottom"
+					FontSize="10"
+					Foreground="#57FFFFFF"
+					Text="由 JamesCJ, sbski, ProjectSBC 和你共同创造！" />
+
+					<Border Width="320" Height="120" HorizontalAlignment="Left" VerticalAlignment="Bottom" CornerRadius="0,4,0,0">
+						<Border.Background>
+							<ImageBrush
     ImageSource="pack://application:,,,/Assets/PCC Banner.png"
     RenderOptions.BitmapScalingMode="HighQuality"
     Stretch="UniformToFill" />
-                        </Border.Background>
-                    </Border>
-                    </Grid>
-                </Border>
-            </Border>
+						</Border.Background>
+					</Border>
+				</Grid>
+			</Border>
+		</Border>
 
-        <Grid Grid.Row="1" Margin="12,18,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+		<Grid Grid.Row="1" Margin="12,18,12,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
 
-            <ui:CardAction
+			<ui:CardAction
                 Name="caPremade"
                 Grid.Row="0"
                 Grid.Column="0"
@@ -115,123 +118,123 @@
                 CommandParameter="premade"
                 Icon="Predictions20"
                 IsChevronVisible="True">
-                <StackPanel>
-                    <TextBlock
+				<StackPanel>
+					<TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Premade Presets" />
-                </StackPanel>
-            </ui:CardAction>
+                        Text="预设模式" />
+				</StackPanel>
+			</ui:CardAction>
 
-            <ui:CardAction
+			<ui:CardAction
                 Grid.Row="0"
                 Grid.Column="1"
                 Margin="4,0,4,0"
                 Command="{Binding ViewModel.NavigateCommand}"
                 CommandParameter="custom"
                 Icon="Book20">
-                <StackPanel>
-                    <TextBlock
+				<StackPanel>
+					<TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Custom Presets" />
-                </StackPanel>
-            </ui:CardAction>
+                        Text="自定义预设" />
+				</StackPanel>
+			</ui:CardAction>
 
-            <ui:CardAction
+			<ui:CardAction
                 Grid.Row="0"
                 Grid.Column="2"
                 Margin="4,0,4,0"
                 Command="{Binding ViewModel.NavigateCommand}"
                 CommandParameter="adaptive"
                 Icon="Radar20">
-                <StackPanel>
-                    <TextBlock
+				<StackPanel>
+					<TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Adaptive Mode" />
-                </StackPanel>
-            </ui:CardAction>
+                        Text="自适应模式" />
+				</StackPanel>
+			</ui:CardAction>
 
-            <ui:CardAction
+			<ui:CardAction
                 Grid.Row="0"
                 Grid.Column="3"
                 Margin="4,0,0,0"
                 Command="{Binding ViewModel.NavigateCommand}"
                 CommandParameter="auto"
                 Icon="Transmission20">
-                <StackPanel>
-                    <TextBlock
+				<StackPanel>
+					<TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Automations" />
-                </StackPanel>
-            </ui:CardAction>
-            <ui:CardAction
+                        Text="自动化任务" />
+				</StackPanel>
+			</ui:CardAction>
+			<ui:CardAction
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="4,8,4,0"
                 Command="{Binding ViewModel.NavigateCommand}"
                 CommandParameter="info"
                 Icon="Info20">
-                <StackPanel>
-                    <TextBlock
+				<StackPanel>
+					<TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="System Info" />
-                </StackPanel>
-            </ui:CardAction>
-            <ui:CardAction
+                        Text="系统信息" />
+				</StackPanel>
+			</ui:CardAction>
+			<ui:CardAction
                 Grid.Row="1"
                 Grid.Column="0"
                 Margin="0,8,4,0"
                 Command="{Binding ViewModel.NavigateCommand}"
                 CommandParameter="games"
-                Icon="Games20" 
+                Icon="Games20"
                 IsEnabled="true">
-                <StackPanel>
-                    <TextBlock
+				<StackPanel>
+					<TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Game Library" />
-                </StackPanel>
-            </ui:CardAction>
-            <ui:CardAction
+                        Text="游戏库" />
+				</StackPanel>
+			</ui:CardAction>
+			<ui:CardAction
                 Grid.Row="1"
                 Grid.Column="2"
                 Margin="4,8,4,0"
                 Command="{Binding ViewModel.NavigateCommand}"
                 CommandParameter="help"
                 Icon="ChatHelp20">
-                <StackPanel>
-                    <TextBlock
+				<StackPanel>
+					<TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Need Help?" />
-                </StackPanel>
-            </ui:CardAction>
-            <ui:CardAction
+                        Text="需要帮助?" />
+				</StackPanel>
+			</ui:CardAction>
+			<ui:CardAction
                 Grid.Row="1"
                 Grid.Column="3"
                 Margin="4,8,0,0"
                 Command="{Binding ViewModel.NavigateCommand}"
                 CommandParameter="support"
                 Icon="Money20">
-                <StackPanel>
-                    <TextBlock
+				<StackPanel>
+					<TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Support Us" />
-                </StackPanel>
-            </ui:CardAction>
-        </Grid>
-    </Grid>
+                        Text="支持我们" />
+				</StackPanel>
+			</ui:CardAction>
+		</Grid>
+	</Grid>
 </ui:UiPage>
